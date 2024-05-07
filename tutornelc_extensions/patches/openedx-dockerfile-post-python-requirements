@@ -1,5 +1,5 @@
 {% if NELC_EXTENSIONS_TRANSLATION_OVERRIDES %}
 RUN pip install openedx-atlas
 RUN atlas pull --repository='{{ ATLAS_REPOSITORY }}' --revision='{{ ATLAS_REVISION }}' {{ ATLAS_OPTIONS }} \
-    translation-overrides/edx-platform/conf/locale:{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }} \
+    translation-overrides/edx-platform/conf/locale:{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }}
 {% endif %}
