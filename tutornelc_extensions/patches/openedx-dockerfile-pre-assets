@@ -1,6 +1,6 @@
 {% if NELC_EXTENSIONS_TRANSLATION_OVERRIDES %}
 RUN pip install openedx-atlas && mkdir -p {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }}
-RUN atlas pull --repository='{{ ATLAS_REPOSITORY }}' --revision='{{ ATLAS_REVISION }}' {{ ATLAS_OPTIONS }} \
+RUN atlas pull --repository='{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REPOSITORY }}' --revision='{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REVISION }}' {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_OPTIONS }} \
     translation-overrides/edx-platform/conf/locale:{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }}
-RUN django-admin compilemessages -v1
+RUN cd {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }} && django-admin compilemessages -v1
 {% endif %}
