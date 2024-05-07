@@ -22,7 +22,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REPOSITORY", "nelc/futurex-translations"),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REVISION", "open-release/palm.master"),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_OPTIONS", ""),
-        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH", "/openedx/locale/translation-overrides/conf/locale"),
+        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_PATH", "translation-overrides/edx-platform"),
+        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH", "/openedx/locale/translation-overrides"),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES", True),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PRIORITY", False),
     ]
