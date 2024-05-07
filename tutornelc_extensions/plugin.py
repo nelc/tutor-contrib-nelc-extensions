@@ -24,7 +24,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("ATLAS_OPTIONS", ""),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH", "/translation-overrides/conf/locale"),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES", True),
-        ("NELC_EXTENSIONS_TRANSLATION_FORCE_OVERRIDES", False),
+        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PRIORITY", False),
     ]
 )
 
