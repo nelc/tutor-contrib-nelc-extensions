@@ -6,3 +6,10 @@ RUN pip install openedx-atlas=={{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_OPENEDX_
     && cd {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }} \
     && django-admin compilemessages -v1
 {% endif %}
+
+{% if NELC_EXTENSIONS_USE_AWS_CLI %}
+COPY --chown=app:app --from=python-requirements /openedx/aws-cli /openedx/aws-cli
+ENV AWS_ACCESS_KEY_ID={{ NELC_EXTENSIONS_AWS_ACCESS_KEY }}
+ENV AWS_SECRET_ACCESS_KEY={{ NELC_EXTENSIONS_AWS_SECRET_ACCESS_KEY }}
+ENV AWS_DEFAULT_REGION={{ NELC_EXTENSIONS_AWS_DEFAULT_REGION }}
+{% endif %}
