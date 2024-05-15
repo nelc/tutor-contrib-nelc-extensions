@@ -1,0 +1,11 @@
+{% if NELC_EXTENSIONS_USE_AWS_CLI %}
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt install unzip \
+  && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install --bin-dir /openedx/bin --install-dir /openedx/aws-cli && rm -r aws awscliv2.zip
+ENV AWS_ACCESS_KEY_ID={{ NELC_EXTENSIONS_AWS_ACCESS_KEY }}
+ENV AWS_SECRET_ACCESS_KEY={{ NELC_EXTENSIONS_AWS_SECRET_ACCESS_KEY }}
+ENV AWS_DEFAULT_REGION={{ NELC_EXTENSIONS_AWS_DEFAULT_REGION }}
+{% endif %}
