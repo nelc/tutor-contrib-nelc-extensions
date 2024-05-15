@@ -6,3 +6,7 @@ RUN pip install openedx-atlas=={{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_OPENEDX_
     && cd {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_PATH }} \
     && django-admin compilemessages -v1
 {% endif %}
+
+{% if NELC_EXTENSIONS_USE_AWS_CLI and NELC_EXTENSIONS_PEARSON_VUE_API_CERT_INCLUDE %}
+COPY --chown=app:app --from=python-requirements /pearson_vue /pearson_vue
+{% endif %}
