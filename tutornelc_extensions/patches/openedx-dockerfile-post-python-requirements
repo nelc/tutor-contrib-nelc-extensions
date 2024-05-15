@@ -8,4 +8,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 ENV AWS_ACCESS_KEY_ID={{ NELC_EXTENSIONS_AWS_ACCESS_KEY }}
 ENV AWS_SECRET_ACCESS_KEY={{ NELC_EXTENSIONS_AWS_SECRET_ACCESS_KEY }}
 ENV AWS_DEFAULT_REGION={{ NELC_EXTENSIONS_AWS_DEFAULT_REGION }}
+{% if NELC_EXTENSIONS_PEARSON_VUE_API_CERT_INCLUDE %}
+RUN mkdir -p /pearson_vue/api_cert \
+    && /openedx/aws-cli/v2/current/bin/aws s3 sync s3://{{ NELC_EXTENSIONS_PEARSON_VUE_S3_BUCKET }}/api_cert/ /pearson_vue/api_cert/
+{% endif %}
 {% endif %}
