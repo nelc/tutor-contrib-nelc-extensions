@@ -1,5 +1,8 @@
 {% if NELC_EXTENSIONS_TRANSLATION_OVERRIDES %}
-RUN django-admin compilemessages -v1 \
+RUN pip install openedx-atlas=={{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_OPENEDX_ATLAS_VERSION }} \
+    && atlas pull {{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_OPTIONS }} --repository='{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REPOSITORY }}' --revision='{{ NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REVISION }}' \
+    translations/edx-platform/conf:conf \
+    && django-admin compilemessages -v1 \
     && ./manage.py lms --settings=tutor.i18n compilejsi18n \
     && ./manage.py cms --settings=tutor.i18n compilejsi18n
 {% endif %}
