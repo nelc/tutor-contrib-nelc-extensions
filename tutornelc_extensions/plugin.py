@@ -20,7 +20,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Prefix your setting names with 'NELC_EXTENSIONS_'.
         ("NELC_EXTENSIONS_VERSION", __version__),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REPOSITORY", "nelc/futurex-translations"),
-        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REVISION", "open-release/palm.master"),
+        ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_REVISION", "open-release/redwood.master"),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_ATLAS_OPTIONS", ""),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES", True),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_OPENEDX_ATLAS_VERSION", "0.6.0"),
