@@ -42,10 +42,10 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.7",
-    install_requires=["tutor>=16.0.0,<17.0.0", "importlib-resources>=6.1.1"],
+    install_requires=["tutor>=18.0.0,<19.0.0", "importlib-resources>=6.1.1"],
     extras_require={
         "dev": [
-            "tutor[dev]>=16.0.0,<17.0.0",
+            "tutor[dev]>=18.0.0,<19.0.0",
         ]
     },
     entry_points={
