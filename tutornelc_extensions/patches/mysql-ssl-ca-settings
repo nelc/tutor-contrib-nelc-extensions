@@ -1,0 +1,7 @@
+{% if NELC_EXTENSIONS_MYSQL_SSL_CA_CONFIG %}
+# ssl-ca configuration
+DATABASES["default"]["OPTIONS"]["ssl_mode"] = "VERIFY_CA"
+DATABASES["default"]["OPTIONS"]["ssl"] = {
+    "ca": "{{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH} }/ssl_ca.pem"
+}
+{% endif %}

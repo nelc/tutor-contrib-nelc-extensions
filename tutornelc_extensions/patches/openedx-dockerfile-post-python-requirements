@@ -14,3 +14,12 @@ RUN mkdir -p /pearson_vue/api_cert \
     && /openedx/aws-cli/v2/current/bin/aws s3 sync s3://{{ NELC_EXTENSIONS_PEARSON_VUE_S3_BUCKET }}/api_cert/ /pearson_vue/api_cert/
 {% endif %}
 {% endif %}
+
+
+{% if NELC_EXTENSIONS_MYSQL_SSL_CA_PULL %}
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+     apt update \
+    && mkdir -p {{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH }} \
+    && curl -o {{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH }}/ssl_ca.pem {{ NELC_EXTENSIONS_MYSQL_SSL_CA_URL }}
+{% endif %}
