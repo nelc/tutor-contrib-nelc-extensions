@@ -32,6 +32,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ),
         ("NELC_EXTENSIONS_MYSQL_SSL_CA_PATH", "/mysql-ssl-ca"),
         ("NELC_EXTENSIONS_MYSQL_SSL_CA_CONFIG", False),
+        ("NELC_EXTENSIONS_MYSQL_SSL_CA_EXTRA_DEPLOYMENTS_MOUNT", []),
     ]
 )
 
