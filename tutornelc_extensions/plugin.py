@@ -25,6 +25,13 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES", True),
         ("NELC_EXTENSIONS_TRANSLATION_OVERRIDES_OPENEDX_ATLAS_VERSION", "0.6.0"),
         ("NELC_EXTENSIONS_USE_AWS_CLI", False),
+        ("NELC_EXTENSIONS_MYSQL_SSL_CA_PULL", True),
+        (
+            "NELC_EXTENSIONS_MYSQL_SSL_CA_URL",
+            "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem"
+        ),
+        ("NELC_EXTENSIONS_MYSQL_SSL_CA_PATH", "/mysql-ssl-ca"),
+        ("NELC_EXTENSIONS_MYSQL_SSL_CA_CONFIG", False),
     ]
 )
 
