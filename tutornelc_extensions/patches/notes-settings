@@ -1,0 +1,3 @@
+{% if 'notes' in NELC_EXTENSIONS_MYSQL_SSL_CA_EXTRA_DEPLOYMENTS_MOUNT%}
+{{ patch("mysql-ssl-ca-settings") }}
+{% endif %}
