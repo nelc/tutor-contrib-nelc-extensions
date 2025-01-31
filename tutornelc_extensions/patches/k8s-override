@@ -1,0 +1,31 @@
+{%- for deployment in NELC_EXTENSIONS_MYSQL_SSL_CA_EXTRA_DEPLOYMENTS_MOUNT %}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ deployment }}
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: fetch-ssl-ca
+        image: curlimages/curl
+        command:
+        - /bin/sh
+        - -c
+        - |
+          curl -o {{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH }}/ssl_ca.pem {{ NELC_EXTENSIONS_MYSQL_SSL_CA_URL }}
+        volumeMounts:
+        - name: mysql-ca-volume
+          mountPath: {{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH }}
+      containers:
+        - name: {{ deployment }}
+          volumeMounts:
+            - mountPath: {{ NELC_EXTENSIONS_MYSQL_SSL_CA_PATH }}
+              name: mysql-ca-volume
+              readOnly: true
+      volumes:
+        - name: mysql-ca-volume
+          emptyDir: {}
+---
+{%- endfor %}
